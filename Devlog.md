@@ -13,5 +13,25 @@ Debating App Router vs Pages Router. App Router is newer and server components m
 ## Plan for tomorrow:
 Build the entire audit engine in `src/lib/audit engine.ts`. Pure TypeScript, no DB calls, no AI. Write tests alongside the logic.
 
+---
+
+## Day 2 — 2025-05-09
+ 
+**Hours worked:** 5
+ 
+**What I did:**
+Built the full audit engine — all 4 rule types (seat reduction, plan downgrade, switch tool, buy via credits) for all 8 tools. The tool-specific downgrade rules took longest: each tool has different thresholds (Cursor Business makes sense at 10+ seats, ChatGPT Enterprise only makes sense at 150+ seats, etc). Wrote 10 tests covering all major paths — all pass. Did first user interview: Rohan K., CTO at an 11-person fintech startup, 14 minutes over video call. His line — "if you showed me a page that said here's the exact seat waste and here's how to fix it, I'd act on that in 30 minutes" — confirmed the core product hypothesis.
+ 
+**What I learned:**
+Tried briefly making the audit recommendations LLM-powered. Abandoned it after writing the first prompt draft. The problem: if I have to send pricing data to the model to get accurate math, I might as well just run the math deterministically. Non-determinism on dollar amounts is a trust killer. Deterministic rules + source citations is the only defensible approach. AI stays in one place: the summary paragraph.
+ 
+**Blockers / what I'm stuck on:**
+The "switch tool" threshold is tricky. Too aggressive and it recommends switching constantly. Too conservative and it misses real savings. Settled on requiring >20% savings AND >$10/mo absolute minimum. May revisit after more user feedback.
+ 
+**Plan for tomorrow:**
+Build the full form UI — ToolRow, TeamSettings, AuditForm — and wire up the `/api/audit` route.
+ 
+---
+
 ## Note
 Please note that I started this assignment a day late due to unavoidable overlaps with my university final exams and my final year project presentation. I want to be completely transparent about my timeline, and I sincerely appreciate your understanding.
