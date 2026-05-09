@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor/ide
+.vscode/
+.idea/
+
+# os specific
+Thumbs.db
+Desktop.ini
+
+# explicitly allow env examples
+!.env.example
+!.env.template
