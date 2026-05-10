@@ -33,5 +33,23 @@ Build the full form UI — ToolRow, TeamSettings, AuditForm — and wire up the 
  
 ---
 
+## Day 3 — 2025-05-11
+ 
+**Hours worked:** 5
+ 
+**What I did:**
+Built AuditForm, ToolRow, and TeamSettings components. The trickiest part was the auto-calculation of monthly spend (seats × plan price) — it needs to update live as the user adjusts seats, but must NOT auto-update for API tools like Anthropic API and OpenAI API where the user enters their actual invoice amount. Hit a bug here: the `isApiTool` flag wasn't being passed into the seats change handler, so changing seats on an API tool was silently overwriting the user's entered spend with a meaningless calculated value. Caught it while testing with an $800/mo Anthropic API entry. Fixed with a one-line conditional. Wired up `/api/audit` with Zod validation, rate limiting, honeypot, and AI summary generation. Full flow works end-to-end. Did second user interview: Priya M., EM at a 28-person Series A, 11 minutes. Her key insight: she wants the report as an artifact to take to her CFO, not just a number to act on herself. Changed the tier-based framing accordingly.
+ 
+**What I learned:**
+The auto-populate of monthly spend as users adjust seats makes the form feel alive and reduces input errors significantly. Without it users enter rough guesses. With it, the math is always correct as long as the plan price is accurate — which brings it back to pricing data quality.
+ 
+**Blockers / what I'm stuck on:**
+Anthropic API summary generation adds ~3 seconds to the audit response time. Acceptable for MVP but would move to async/background job before scaling. Documented the upgrade path in ARCHITECTURE.md.
+ 
+**Plan for tomorrow:**
+Build the results page — this is the most important page in the product. It's what gets screenshotted and shared.
+ 
+---
+
 ## Note
 Please note that I started this assignment a day late due to unavoidable overlaps with my university final exams and my final year project presentation. I want to be completely transparent about my timeline, and I sincerely appreciate your understanding.
