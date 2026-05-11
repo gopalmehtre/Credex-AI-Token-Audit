@@ -51,5 +51,23 @@ Build the results page — this is the most important page in the product. It's 
  
 ---
 
+## Day 4 — 2025-05-12
+ 
+**Hours worked:** 6
+ 
+**What I did:**
+Built AuditResultsView, RecommendationCard, LeadCaptureModal, CredexPromo, and SharedAuditView components. Results page took the longest — getting the hero savings block hierarchy right (savings number → annual equivalent → percentage reduction → spend comparison bar) without it feeling like a dashboard. Built the shareable audit URL system: each audit gets a `nanoid(10)` share ID stored in the DB, the public `/share/[shareId]` page strips PII and renders with full OG/Twitter metadata. Built the `/api/og` route for dynamic Open Graph images using Next.js ImageResponse. Did third user interview: Marcus T., solo technical founder, 18 minutes. He had Claude Pro AND ChatGPT Plus running simultaneously, using them by feel for different tasks, genuinely uncertain if he was wasting $20/month. Confirmed that honest "you're spending well" results are as valuable as high-savings results — added the explicit optimal verdict copy.
+ 
+**What I learned:**
+The CredexPromo component needs to feel earned. Showing it for a $20/mo savings result feels like bait-and-switch and kills trust. Gating it strictly at >$500/mo means every person who sees it genuinely has a reason to book a consultation. The constraint actually makes the promo more effective.
+ 
+**Blockers / what I'm stuck on:**
+The CI pipeline needs the postgres service container configured correctly in GitHub Actions. Setting that up tomorrow alongside the documentation push.
+ 
+**Plan for tomorrow:**
+Write all 12 required documentation files, set up GitHub Actions CI, deploy to Vercel, run Lighthouse.
+ 
+---
+
 ## Note
 Please note that I started this assignment a day late due to unavoidable overlaps with my university final exams and my final year project presentation. I want to be completely transparent about my timeline, and I sincerely appreciate your understanding.
