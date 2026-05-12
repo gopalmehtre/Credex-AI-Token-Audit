@@ -2,15 +2,15 @@
 
 SpendSight is a free web tool that audits your startup's AI tool spending — Cursor, Claude, ChatGPT, GitHub Copilot, and more — and surfaces specific, finance-defensible savings recommendations. It's a lead-generation asset for [Credex](https://credex.rocks), which sells discounted AI infrastructure credits.
 
-## Screenshots
+## Loom Video
 
-> _Add 3+ screenshots or a Loom/YouTube link after deployment._
+> https://www.loom.com/share/417eb69f87624d7a8dafb65e6f0fd2a1
 
 - `/audit` — Multi-tool spend input form with auto-calculated spend per seat
 - `/audit/results` — Hero savings block, per-tool recommendations, AI summary, email capture
 - `/share/[id]` — Public shareable audit with Open Graph previews
 
-**Live URL:** `https://your-deployment-url.vercel.app`
+**Live URL:** https://spend-sight.onrender.com
 
 ---
 
@@ -27,7 +27,7 @@ SpendSight is a free web tool that audits your startup's AI tool spending — Cu
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/yourusername/ai-spend-audit
+git clone git clone https://github.com/gopalmehtre/Credex-AI-Token-Audit
 cd ai-spend-audit
 npm install
 
