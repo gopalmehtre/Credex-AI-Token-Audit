@@ -65,8 +65,7 @@ export async function generateAiSummary(
 
   try {
     const response = await client.chat.completions.create({
-      model: 'gemini-1.5-pro',
-      max_tokens: 250,
+      model: 'gemini-2.5-flash',
       messages: [
         {
           role: 'user',

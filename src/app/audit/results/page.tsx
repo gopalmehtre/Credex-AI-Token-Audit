@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import type { AuditResult, AuditFormInput } from '@/types';
-import AuditResultsView from '@/components/audit/AuditResultsView';
+import AuditResultsView from '@/components/Audit/AuditResultsView';
 import { TrendingDown, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 

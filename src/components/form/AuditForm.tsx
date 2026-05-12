@@ -1,14 +1,14 @@
 'use client';
 // src/components/form/AuditForm.tsx
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { Plus, Loader2, ChevronRight } from 'lucide-react';
 import type { AuditFormInput, ToolId, ToolInput, UseCase } from '@/types';
 import { TOOL_DISPLAY_ORDER, PRICING_DATA } from '@/lib/pricing-data';
 import ToolRow from './ToolRow';
-import TeamSettings from './TeamSettings';
+import TeamSettings from './TeamSetting';
 
 const DEFAULT_TOOL: ToolInput = {
   toolId: 'cursor',
@@ -32,19 +32,27 @@ function loadSavedState(): AuditFormInput | null {
 function saveState(state: AuditFormInput) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {}
+  } catch { }
 }
 
 export default function AuditForm() {
   const router = useRouter();
-  const saved = loadSavedState();
 
-  const [tools, setTools] = useState<ToolInput[]>(
-    saved?.tools ?? [{ ...DEFAULT_TOOL }]
-  );
-  const [teamSize, setTeamSize] = useState<number>(saved?.teamSize ?? 5);
-  const [useCase, setUseCase] = useState<UseCase>(saved?.useCase ?? 'mixed');
+  // Initialize with static defaults so server and client HTML always match
+  const [tools, setTools] = useState<ToolInput[]>([{ ...DEFAULT_TOOL }]);
+  const [teamSize, setTeamSize] = useState<number>(5);
+  const [useCase, setUseCase] = useState<UseCase>('mixed');
   const [submitting, setSubmitting] = useState(false);
+
+  // Hydrate from localStorage AFTER first render (client-only)
+  useEffect(() => {
+    const saved = loadSavedState();
+    if (saved) {
+      setTools(saved.tools);
+      setTeamSize(saved.teamSize);
+      setUseCase(saved.useCase);
+    }
+  }, []);
 
   const persistState = useCallback(
     (t: ToolInput[], ts: number, uc: UseCase) => {
@@ -133,11 +141,11 @@ export default function AuditForm() {
       <TeamSettings
         teamSize={teamSize}
         useCase={useCase}
-        onTeamSizeChange={(v) => {
+        onTeamSizeChange={(v: number) => {
           setTeamSize(v);
           persistState(tools, v, useCase);
         }}
-        onUseCaseChange={(v) => {
+        onUseCaseChange={(v: UseCase) => {
           setUseCase(v);
           persistState(tools, teamSize, v);
         }}

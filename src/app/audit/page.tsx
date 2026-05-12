@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import AuditForm from '@/components/form/AuditForm';
+import AuditForm from '@/components/form/AuditFormWrapper';
 import { TrendingDown } from 'lucide-react';
 import Link from 'next/link';
 

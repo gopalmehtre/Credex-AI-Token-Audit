@@ -9,12 +9,12 @@ interface Props {
   onUseCaseChange: (v: UseCase) => void;
 }
 
-const USE_CASES: { id: UseCase; label: string; emoji: string }[] = [
-  { id: 'coding', label: 'Coding', emoji: '⌨️' },
-  { id: 'writing', label: 'Writing', emoji: '✍️' },
-  { id: 'data', label: 'Data / Analytics', emoji: '📊' },
-  { id: 'research', label: 'Research', emoji: '🔍' },
-  { id: 'mixed', label: 'Mixed', emoji: '⚡' },
+const USE_CASES: { id: UseCase; label: string}[] = [
+  { id: 'coding', label: 'Coding'},
+  { id: 'writing', label: 'Writing' },
+  { id: 'data', label: 'Data / Analytics' },
+  { id: 'research', label: 'Research' },
+  { id: 'mixed', label: 'Mixed' },
 ];
 
 export default function TeamSettings({ teamSize, useCase, onTeamSizeChange, onUseCaseChange }: Props) {
@@ -63,7 +63,7 @@ export default function TeamSettings({ teamSize, useCase, onTeamSizeChange, onUs
         <div className="flex flex-col gap-2">
           <label className="text-ink-400 text-sm">Primary use case</label>
           <div className="flex flex-wrap gap-2">
-            {USE_CASES.map(({ id, label, emoji }) => (
+            {USE_CASES.map(({ id, label }) => (
               <button
                 key={id}
                 type="button"
@@ -75,7 +75,6 @@ export default function TeamSettings({ teamSize, useCase, onTeamSizeChange, onUs
                     : 'bg-ink-800 border border-ink-700 text-ink-400 hover:border-ink-600 hover:text-ink-200'
                 )}
               >
-                <span>{emoji}</span>
                 {label}
               </button>
             ))}

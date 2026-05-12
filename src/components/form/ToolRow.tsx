@@ -14,16 +14,16 @@ interface Props {
   onRemove: () => void;
 }
 
-const TOOL_ICONS: Partial<Record<ToolId, string>> = {
-  cursor: '⌶',
-  github_copilot: '🐙',
-  claude: '◆',
-  chatgpt: '✦',
-  anthropic_api: '◈',
-  openai_api: '⬡',
-  gemini: '✧',
-  windsurf: '〰',
-};
+// const TOOL_ICONS: Partial<Record<ToolId, string>> = {
+//   cursor: '⌶',
+//   github_copilot: '🐙',
+//   claude: '◆',
+//   chatgpt: '✦',
+//   anthropic_api: '◈',
+//   openai_api: '⬡',
+//   gemini: '✧',
+//   windsurf: '〰',
+// };
 
 export default function ToolRow({ tool, canRemove, usedToolIds, onChange, onRemove }: Props) {
   const toolData = PRICING_DATA[tool.toolId];
@@ -69,9 +69,9 @@ export default function ToolRow({ tool, canRemove, usedToolIds, onChange, onRemo
         <div className="flex flex-col gap-1">
           <label className="text-xs text-ink-500 font-medium uppercase tracking-wide">Tool</label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-base">
+            {/* <span className="absolute left-3 top-1/2 -translate-y-1/2 text-base">
               {TOOL_ICONS[tool.toolId] ?? '⬡'}
-            </span>
+            </span> */}
             <select
               value={tool.toolId}
               onChange={(e) => handleToolChange(e.target.value as ToolId)}

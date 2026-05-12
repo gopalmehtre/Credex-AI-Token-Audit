@@ -52,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable} ${jetbrains.variable}`}>
-      <body className="bg-ink-950 text-ink-100 font-body antialiased">
+    <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${dmSans.variable} ${jetbrains.variable}`}>
+      <body className="bg-ink-950 text-ink-100 font-body antialiased" suppressHydrationWarning>
         {children}
         <Toaster
           position="top-right"

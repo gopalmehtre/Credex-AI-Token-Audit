@@ -2,8 +2,8 @@ import { query, queryOne } from './db';
 import { createHash } from 'crypto';
 
 const WINDOW_MS = 60 * 60 * 1000; // 1 hour
-const MAX_AUDITS_PER_HOUR = 10;
-const MAX_LEADS_PER_HOUR = 5;
+const MAX_AUDITS_PER_HOUR = 100;
+const MAX_LEADS_PER_HOUR = 50;
 
 export function hashIp(ip: string): string {
   return createHash('sha256').update(ip + 'spendsight_salt').digest('hex').slice(0, 16);

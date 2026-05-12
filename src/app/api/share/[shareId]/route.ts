@@ -3,9 +3,10 @@ import { queryOne } from '@/lib/db';
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { shareId: string } }
+  { params }: { params: Promise<{ shareId: string }> }
 ) {
   try {
+    const { shareId } = await params;
     const row = await queryOne<{
       share_id: string;
       tools_input: Record<string, unknown>;
@@ -21,7 +22,7 @@ export async function GET(
               total_monthly_savings, total_annual_savings,
               use_case, team_size, created_at
        FROM audits WHERE share_id = $1`,
-      [params.shareId]
+      [shareId]
     );
 
     if (!row) {

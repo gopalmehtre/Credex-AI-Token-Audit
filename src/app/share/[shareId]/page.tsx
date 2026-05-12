@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { queryOne } from '@/lib/db';
 import type { ShareableAudit } from '@/types';
-import SharedAuditView from '@/components/audit/SharedAuditView';
+import SharedAuditView from '@/components/Audit/SharedAuditView';
 
 interface Props {
-  params: { shareId: string };
+  params: Promise<{ shareId: string }>;
 }
 
 async function getSharedAudit(shareId: string): Promise<ShareableAudit | null> {
@@ -56,7 +56,8 @@ async function getSharedAudit(shareId: string): Promise<ShareableAudit | null> {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const audit = await getSharedAudit(params.shareId);
+  const { shareId } = await params;
+  const audit = await getSharedAudit(shareId);
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'https://spendsight.io';
 
   if (!audit) {
@@ -94,7 +95,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function SharePage({ params }: Props) {
-  const audit = await getSharedAudit(params.shareId);
+  const { shareId } = await params;
+  const audit = await getSharedAudit(shareId);
 
   if (!audit) {
     notFound();
