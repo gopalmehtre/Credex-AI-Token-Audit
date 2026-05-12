@@ -106,8 +106,8 @@ export default function ToolRow({ tool, canRemove, usedToolIds, onChange, onRemo
                 {plan.pricePerUserPerMonth > 0
                   ? ` — $${plan.pricePerUserPerMonth}/user`
                   : plan.id === 'pay_as_you_go' || plan.id.includes('api')
-                  ? ' (enter actual spend)'
-                  : ' (Free)'}
+                    ? ' (enter actual spend)'
+                    : ' (Free)'}
               </option>
             ))}
           </select>

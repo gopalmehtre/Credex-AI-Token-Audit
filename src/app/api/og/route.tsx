@@ -29,8 +29,8 @@ export async function GET(req: NextRequest) {
         teamSize = row.team_size;
         savingsTier =
           monthlySavings > 500 ? 'high' :
-          monthlySavings > 100 ? 'medium' :
-          monthlySavings > 0 ? 'low' : 'optimal';
+            monthlySavings > 100 ? 'medium' :
+              monthlySavings > 0 ? 'low' : 'optimal';
       }
     } catch {
       // fallback to defaults
@@ -47,7 +47,7 @@ export async function GET(req: NextRequest) {
 
   const accentColor = savingsTier === 'high' ? '#C8F135' :
     savingsTier === 'medium' ? '#F5A623' :
-    savingsTier === 'low' ? '#60a5fa' : '#22C55E';
+      savingsTier === 'low' ? '#60a5fa' : '#22C55E';
 
   return new ImageResponse(
     (

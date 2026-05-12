@@ -161,7 +161,7 @@ export default function HomePage() {
               </p>
               <p className="text-ink-400 mb-8">
                 On a 10-person engineering team paying retail for Cursor Business + ChatGPT Team.
-                The math isn't hard — it just takes 2 minutes to check.
+                The math isn&apos;t hard — it just takes 2 minutes to check.
               </p>
               <Link href="/audit" className="btn-primary text-base px-7 py-3 inline-flex items-center gap-2">
                 Start free audit

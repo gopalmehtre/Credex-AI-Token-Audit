@@ -26,6 +26,7 @@ export default function ResultsPage() {
     }
 
     try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setResult(JSON.parse(savedResult));
       setFormInput(JSON.parse(savedInput));
     } catch {

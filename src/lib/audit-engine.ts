@@ -25,10 +25,10 @@ export function runAuditEngine(input: AuditFormInput): AuditResult {
     totalMonthlySavings > 500
       ? 'high'
       : totalMonthlySavings > 100
-      ? 'medium'
-      : totalMonthlySavings > 0
-      ? 'low'
-      : 'optimal';
+        ? 'medium'
+        : totalMonthlySavings > 0
+          ? 'low'
+          : 'optimal';
 
   return {
     recommendations,
@@ -318,7 +318,7 @@ function buildDowngradeReasoning(
     chatgpt: `With ${seats} users, ${toPlan} handles your workload. The ${fromPlan} plan's minimum seat requirements and premium pricing are designed for large enterprise deployments.`,
   };
 
-  return contextMap[toolInput.toolId] ?? 
+  return contextMap[toolInput.toolId] ??
     `Downgrading from ${fromPlan} to ${toPlan} for ${seats} users saves $${round2(savings)}/mo. The feature difference primarily affects teams 3× your size.`;
 }
 

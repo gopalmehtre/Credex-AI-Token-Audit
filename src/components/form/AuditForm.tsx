@@ -48,6 +48,7 @@ export default function AuditForm() {
   useEffect(() => {
     const saved = loadSavedState();
     if (saved) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTools(saved.tools);
       setTeamSize(saved.teamSize);
       setUseCase(saved.useCase);
