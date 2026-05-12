@@ -47,7 +47,7 @@ jobs:
         run: npm ci
 
       - name: Run DB migrations
-        run: node scripts/migrate.js
+        run: PGPASSWORD=postgres psql -h localhost -U postgres -d ai_spend_audit_test -f scripts/init.sql
 
       - name: Lint
         run: npm run lint
