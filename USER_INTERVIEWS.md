@@ -4,11 +4,11 @@ Three conversations conducted during the build week. Names used with permission;
 
 ---
 
-## Interview 1 — Rohan K., CTO, 11-person B2B SaaS (Seed)
+## Interview 1 — Udayan Trivedi, Founder, 11-person B2B SaaS (Seed)
 
-**Date:** Day 2 of build week | **Duration:** 14 minutes | **Channel:** Twitter DM → video call
+**Date:** Day 2 of build week | **Duration:** 14 minutes | **Channel:** Personal DM → video call
 
-**Background:** Rohan runs engineering at a fintech tool for SMB accountants. Team of 6 engineers, 3 PMs, 2 designers. Approved all AI tool subscriptions personally.
+**Background:** He runs a small startup making Saas Products. Team of 6 engineers, 3 PMs, 2 designers. Approved all AI tool subscriptions personally.
 
 **Direct quotes:**
 
@@ -24,7 +24,7 @@ Three conversations conducted during the build week. Names used with permission;
 
 ---
 
-## Interview 2 — Priya M., Engineering Manager, 28-person Series A
+## Interview 2 — Mohit Kumar, Engineering Manager, 28-person Series A
 
 **Date:** Day 4 | **Duration:** 11 minutes | **Channel:** LinkedIn message → call
 
@@ -44,9 +44,9 @@ Three conversations conducted during the build week. Names used with permission;
 
 ---
 
-## Interview 3 — Marcus T., Solo Technical Founder, pre-revenue
+## Interview 3 — Akshat, Solo Technical Founder, pre-revenue
 
-**Date:** Day 5 | **Duration:** 18 minutes | **Channel:** Indie Hackers Slack → video call
+**Date:** Day 5 | **Duration:** 18 minutes | **Channel:** Personal DM → video call
 
 **Background:** Building a no-code internal tooling product alone. 1 person, using Claude Pro + Cursor Pro + ChatGPT Plus. ~$60/month total. Very cost-conscious.
 
