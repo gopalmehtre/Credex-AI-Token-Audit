@@ -69,7 +69,7 @@ Write all 12 required documentation files, set up GitHub Actions CI, deploy to V
  
 ---
 
-## Day 5 — Final Deployment & Polish
+## Day 5 & 6 — Final Deployment & Polish
  
 **Hours worked:** 5
  
