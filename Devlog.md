@@ -69,5 +69,25 @@ Write all 12 required documentation files, set up GitHub Actions CI, deploy to V
  
 ---
 
+## Day 5 — Final Deployment & Polish
+ 
+**Hours worked:** 5
+ 
+**What I did:**
+- **Final Debugging:** Squashed the last few critical bugs blocking production. Fixed a local Docker port collision that was masking the DB, upgraded dynamic routing parameters (`params`) to properly handle Next.js 15+ async Promises, and resolved a pesky React hydration mismatch on the `/audit` form caused by `localStorage` initializations and browser extension injections by moving the form to a dynamic, client-only wrapper.
+- **AI Refinement:** Fixed an issue where the Gemini AI summary was prematurely truncating its output mid-sentence by completely removing the `max_tokens` constraint, allowing it to natively fulfill the prompt instructions.
+- **Testing:** Added the missing Jest test runner to `package.json` and verified that 100% of the core audit engine logic tests pass cleanly.
+- **Documentation:** Wrote all 12 documentation files: README, ARCHITECTURE (with Mermaid system diagram), PRICING_DATA, PROMPTS, TESTS, DEVLOG, REFLECTION, GTM, ECONOMICS, USER_INTERVIEWS, LANDING_COPY, METRICS. 
+- **CI/CD & Deployment:** Set up `.github/workflows/ci.yml` — postgres service container, lint, `tsc --noEmit`, tests, build. All green on first push after a minor TypeScript config fix. Deployed to Vercel with Neon managed Postgres for production. 
+- **Audit:** Ran Lighthouse: Performance 91, Accessibility 94, Best Practices 95. Two accessibility fixes needed: missing `aria-label` on icon-only buttons and insufficient contrast on `text-ink-600` elements against the dark background. Fixed both. 
+- **Completion:** Did a full end-to-end test: landing → form → audit → results → email capture → share URL → public page. Everything works. Submitted the Google Form.
+ 
+**What I learned:**
+Writing ECONOMICS.md forced me to do the funnel math properly instead of describing it vaguely. The real insight was that the tool only needs to convert 0.25% of visitors to customers to hit $1M ARR — but that requires 40k visitors/month, which means the viral share loop has to actually work. That's a testable hypothesis, not a given. Additionally, the Next.js 15+ async/await changes on dynamic route `params` are strict, and resolving server/client hydration mismatches when relying on `localStorage` requires very deliberate architectural separation.
+ 
+**Blockers / what I'm stuck on:**
+Nothing blocking — the project is successfully submitted!
+
+
 ## Note
 Please note that I started this assignment a day late due to unavoidable overlaps with my university final exams and my final year project presentation. I want to be completely transparent about my timeline, and I sincerely appreciate your understanding.
