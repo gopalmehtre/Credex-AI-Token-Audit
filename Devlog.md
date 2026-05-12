@@ -44,7 +44,7 @@ Built AuditForm, ToolRow, and TeamSettings components. The trickiest part was th
 The auto-populate of monthly spend as users adjust seats makes the form feel alive and reduces input errors significantly. Without it users enter rough guesses. With it, the math is always correct as long as the plan price is accurate — which brings it back to pricing data quality.
  
 **Blockers / what I'm stuck on:**
-Anthropic API summary generation adds ~3 seconds to the audit response time. Acceptable for MVP but would move to async/background job before scaling. Documented the upgrade path in ARCHITECTURE.md.
+Gemini API summary generation adds ~3 seconds to the audit response time. Acceptable for MVP but would move to async/background job before scaling. Documented the upgrade path in ARCHITECTURE.md.
  
 **Plan for tomorrow:**
 Build the results page — this is the most important page in the product. It's what gets screenshotted and shared.
